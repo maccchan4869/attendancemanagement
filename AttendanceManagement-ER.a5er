@@ -1,0 +1,224 @@
+﻿# A5:ER FORMAT:13
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=AttendanceManagement
+Author=Yuhei Matsuo
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=4
+RDBMSTypeName=Microsoft SQL Server 2008
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Entity]
+PName=tbm_User
+LName=ユーザーマスタ
+Comment=
+TableOption=
+Page=Main
+Left=800
+Top=800
+Field="ユーザーID","UserId","varchar(7)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="パスワード","Password","varchar(256)","NOT NULL",,"","",$FFFFFFFF,""
+Field="ユーザー名","UserName","nvarchar(256)","NOT NULL",,"","",$FFFFFFFF,""
+Field="メールアドレス","MailAddress","varchar(256)","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","bit","NOT NULL",,"0","",$FFFFFFFF,""
+EffectMode=None
+Tag=MU
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200522222100
+Position="Main",800,800
+ZOrder=0
+
+[Entity]
+PName=tbd_CurrentWork
+LName=現在勤務先
+Comment=
+TableOption=
+Page=Main
+Left=1400
+Top=800
+Field="ユーザーID","UserId","nvarchar(7)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="勤務先CD","WorkingPlaceCd","varchar(2)","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Tag=TCW
+Color=$000000
+BkColor=$00F5FF
+ModifiedDateTime=20200522222240
+Position="Main",1400,800
+ZOrder=1
+
+[Entity]
+PName=tbm_Holiday
+LName=休日マスタ
+Comment=
+TableOption=
+Page=Main
+Left=800
+Top=1200
+Field="祝日","Holiday","date","NOT NULL",0,"","",$FFFFFFFF,""
+Field="祝日年","HolidayYear","int(4)","NOT NULL",,"","",$FFFFFFFF,""
+Field="祝日月","HolidayMonth","int(2)","NOT NULL",,"","",$FFFFFFFF,""
+Field="祝日名","HolidayName","nvarchar(256)","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","bit","NOT NULL",,"0","",$FFFFFFFF,""
+EffectMode=None
+Tag=MH
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200522222124
+Position="Main",800,1200
+ZOrder=2
+
+[Entity]
+PName=tbd_Report
+LName=作業報告
+Comment=
+TableOption=
+Page=Main
+Left=1100
+Top=800
+Field="ユーザーID","UserId","varchar(7)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="日付","WorkDay","date","NOT NULL",1,"","",$FFFFFFFF,""
+Field="作業時間","WorkTime","numeric(4,2)","NOT NULL",,"","",$FFFFFFFF,""
+Field="勤務先CD","WorkingPlaceCd","varchar(2)","NOT NULL",,"","",$FFFFFFFF,""
+Field="作業開始時間","WorkStart","datetime",,,"","",$FFFFFFFF,""
+Field="作業終了時間","WorkEnd","datetime",,,"","",$FFFFFFFF,""
+Field="残業時間","OverTime","numeric(4,2)",,,"","",$FFFFFFFF,""
+EffectMode=None
+Tag=TR
+Color=$000000
+BkColor=$00F5FF
+ModifiedDateTime=20200522222225
+Position="Main",1100,800
+ZOrder=3
+
+[Relation]
+Entity1=tbd_Report
+Entity2=tbm_User
+RelationType1=1
+RelationType2=3
+Fields1=UserId,WorkDay
+Fields2=UserId,
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4326,5674,4390,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=433
+Bar2=567
+Bar3=439
+TermPos1=R
+TermPos2=R
+ZOrder=4
+
+[Relation]
+Entity1=tbd_Report
+Entity2=tbd_CurrentWork
+RelationType1=1
+RelationType2=3
+Fields1=UserId,WorkDay
+Fields2=UserId,
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4135,5865,4454,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=414
+Bar2=586
+Bar3=445
+TermPos1=R
+TermPos2=R
+ZOrder=5
+
+[Entity]
+PName=tbm_WorkingPlace
+LName=勤務先マスタ
+Comment=
+TableOption=
+Page=Main
+Left=1600
+Top=1000
+Field="勤務先CD","WorkingPlaceCd","date","NOT NULL",0,"","",$FFFFFFFF,""
+Field="勤務先名","WorkingPlaceName","nvarchar(256)","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","DeleteFlg","bit","NOT NULL",,"0","",$FFFFFFFF,""
+EffectMode=None
+Tag=MWP
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200522224811
+Position="Main",1600,1000
+ZOrder=6
+
+[Relation]
+Entity1=tbm_WorkingPlace
+Entity2=tbd_CurrentWork
+RelationType1=2
+RelationType2=3
+Fields1=WorkingPlaceCd
+Fields2=WorkingPlaceCd
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,5112,4888,5739,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=511
+Bar2=489
+Bar3=574
+TermPos1=R
+TermPos2=R
+ZOrder=7
+
+[Relation]
+Entity1=tbm_WorkingPlace
+Entity2=tbd_Report
+RelationType1=2
+RelationType2=3
+Fields1=WorkingPlaceCd
+Fields2=WorkingPlaceCd
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4454,5546,5201,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=445
+Bar2=555
+Bar3=520
+TermPos1=R
+TermPos2=R
+ZOrder=8
