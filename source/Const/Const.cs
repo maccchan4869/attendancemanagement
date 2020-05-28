@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Const
 {
-    public class Class1
+    public class Const
     {
     }
 }
