@@ -50,6 +50,6 @@ Thumbs.db
 
 /*/.vs
 /*/packages
-/*/obj
-/*/bin
-/*/*.csproj.user
+/*/*/obj
+/*/*/bin
+/*/*/*.csproj.user
