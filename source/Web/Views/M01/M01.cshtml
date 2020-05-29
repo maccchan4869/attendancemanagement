@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "ログイン画面";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+}
+
+@section Scripts{
+    @Html.Js("~/Scripts/Common/Common.js")
+    @Html.Js("~/Scripts/M01/M01.js")
+}
+
+<div>
+    <input type="button" class="btn btn-primary" id="btnLogin" value="ログイン" onclick="M01.onClickLogin()">
+</div>
+
+

@@ -30,6 +30,15 @@ $(function () {
 
                 }
             });
+        },
+
+        /** 
+         * ページ遷移.
+         * 
+         * @param {Object} Url       遷移先Url
+         */
+        Send: function (Url) {
+            location.href = Url;
         }
     };
 
