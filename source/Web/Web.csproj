@@ -150,6 +150,10 @@
     <Content Include="Content\Common\site.min.css">
       <DependentUpon>site.css</DependentUpon>
     </Content>
+    <Content Include="Content\M01\M01.css" />
+    <Content Include="Content\M01\M01.min.css">
+      <DependentUpon>M01.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -190,6 +194,7 @@
     <Content Include="Scss\Common\site.scss" />
     <Content Include="Views\M01\M01.cshtml" />
     <Content Include="Views\M02\M02.cshtml" />
+    <Content Include="Scss\M01\M01.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

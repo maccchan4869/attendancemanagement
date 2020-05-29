@@ -4,6 +4,7 @@
 }
 
 @section Styles{
+    @Html.Css("~/Content/M01/M01.css")
 }
 
 @section Scripts{
@@ -11,8 +12,18 @@
     @Html.Js("~/Scripts/M01/M01.js")
 }
 
-<div>
-    <input type="button" class="btn btn-primary" id="btnLogin" value="ログイン" onclick="M01.onClickLogin()">
+<div class="M01_MainArea">
+    <div class="inputLoginIdArea">
+        <label>ログインID</label>
+        <input type="text" id="LoginId">
+    </div>
+    <div class="inputPasswordArea">
+        <label>パスワード</label>
+        <input type="text" id="Password">
+    </div>
+    <div class="btnArea">
+        <input type="button" class="btn btn-primary" id="btnLogin" value="ログイン" onclick="M01.onClickLogin()">
+    </div>
 </div>
 
 
