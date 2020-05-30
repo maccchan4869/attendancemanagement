@@ -9,7 +9,7 @@ $(function () {
          * 読込完了時イベント
          */
         OnReady: function () {
-            $("#common-Nav").css("visibility", "visible");
+            $("#nav-btn").css("visibility", "visible");
         },
 
         /**

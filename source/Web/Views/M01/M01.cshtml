@@ -12,17 +12,15 @@
     @Html.Js("~/Scripts/M01/M01.js")
 }
 
-<div class="container body-content">
-    <div class="M01_MainArea">
-        <div class="inputLoginIdArea">
-            <input type="text" id="LoginId" placeholder="ログインID" >
-        </div>
-        <div class="inputPasswordArea">
-            <input type="text" id="Password" placeholder="パスワード">
-        </div>
-        <div class="btnArea">
-            <input type="button" class="btn btn-primary" id="btnLogin" value="ログイン" onclick="M01.onClickLogin()">
-        </div>
+<div class="container M01_MainArea">
+    <div class="inputLoginIdArea">
+        <input type="text" id="LoginId" placeholder="ログインID">
+    </div>
+    <div class="inputPasswordArea">
+        <input type="text" id="Password" placeholder="パスワード">
+    </div>
+    <div class="btnArea">
+        <input type="button" class="btn btn-primary" id="btnLogin" value="ログイン" onclick="M01.onClickLogin()">
     </div>
 </div>
 
