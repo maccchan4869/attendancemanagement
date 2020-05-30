@@ -10,6 +10,7 @@ $(function () {
          */
         OnReady: function () {
             $("#nav-btn").css("visibility", "visible");
+            Common.HeaderSetEvent();
         },
 
         /**

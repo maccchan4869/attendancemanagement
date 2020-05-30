@@ -21,7 +21,7 @@ $(function () {
          * ログイン処理.
          */
         onClickLogin: function () {
-            $("#btnLogin").click(Common.Send("/M02/M02"));
+            $("#btnLogin").click(Common.Send(CommonConst.PAGE_URL.M02));
         }
     };
 

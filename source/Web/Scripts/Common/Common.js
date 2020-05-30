@@ -39,9 +39,46 @@ $(function () {
          */
         Send: function (Url) {
             location.href = Url;
+        },
+
+        /** 
+         * ヘッダーのイベント定義.
+         * 
+         */
+        HeaderSetEvent: function () {
+            // 休暇一覧押下.
+
+            $("#vacationList").click(function () {
+                alert("休暇一覧");
+            });
+
+            // 有給休暇申請押下.
+            $("#vacationApply").click(function () {
+                alert("有給休暇申請");
+            });
+
+            // ログアウト押下.
+            $("#btnLogout").click(function () {
+                Common.Send(CommonConst.PAGE_URL.M01);
+            });
         }
     };
 
     CommonConst = {
+        /**
+         * 遷移URL.
+         */
+        PAGE_URL: {
+
+            /**
+             * ログイン画面.
+             */
+            M01: "/M01/M01",
+
+           /**
+             * ログイン画面.
+             */
+            M02: "/M02/M02",
+        }
     };
 });
