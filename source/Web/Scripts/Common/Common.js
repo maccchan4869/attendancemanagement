@@ -43,23 +43,34 @@ $(function () {
 
         /** 
          * ヘッダーのイベント定義.
-         * 
          */
         HeaderSetEvent: function () {
-            // 休暇一覧押下.
 
+            // 休暇一覧押下.
             $("#vacationList").click(function () {
-                alert("休暇一覧");
+                Common.Send(CommonConst.PAGE_URL.M04);
             });
 
             // 有給休暇申請押下.
             $("#vacationApply").click(function () {
-                alert("有給休暇申請");
+                $('.popupM05').addClass('show').fadeIn();
             });
 
             // ログアウト押下.
             $("#btnLogout").click(function () {
                 Common.Send(CommonConst.PAGE_URL.M01);
+            });
+
+        },
+
+        /** 
+         * 共通イベントの定義.
+         */
+        CommonSetEvent: function () {
+
+            // ポップアップを閉じる.
+            $(".popupClose").click(function () {
+                $('.popup').removeClass("show");
             });
         }
     };
@@ -76,9 +87,14 @@ $(function () {
             M01: "/M01/M01",
 
            /**
-             * ログイン画面.
+             * カレンダー画面.
              */
             M02: "/M02/M02",
+
+            /**
+             * 休暇一覧画面.
+             */
+            M04: "/M04/M04",
         }
     };
 });

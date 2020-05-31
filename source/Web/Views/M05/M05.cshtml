@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "有給休暇申請画面";
+}
+
+<div class="popup popupM05 modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- モーダルのヘッダー -->
+            <div class="modal-header">
+                <h5>@ViewBag.Title</h5>
+                <!-- 閉じるアイコン -->
+                <button type="button" class="close popupClose" data-dismiss="modal" aria-label="Close">
+                    <span>×</span>
+                </button>
+            </div>
+            <!-- モーダルの本文 -->
+            <div class="modal-body">
+                <input type="text" id="inputHoliday" placeholder="有給休暇申請日">
+                <input type="button" value="申請する" onclick="M05.onClickApply()">
+            </div>
+        </div>
+    </div>
+</div>

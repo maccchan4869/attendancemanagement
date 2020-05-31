@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\M01Controller.cs" />
     <Compile Include="Controllers\M02Controller.cs" />
+    <Compile Include="Controllers\M04Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,6 +152,7 @@
     <Content Include="Content\Common\site.min.css">
       <DependentUpon>site.css</DependentUpon>
     </Content>
+    <Content Include="Content\img\img.jpg" />
     <Content Include="Content\M01\M01.css" />
     <Content Include="Content\M01\M01.min.css">
       <DependentUpon>M01.css</DependentUpon>
@@ -197,6 +199,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\M01\M01.js" />
     <Content Include="Scripts\M02\M02.js" />
+    <Content Include="Scripts\M04\M04.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -300,6 +303,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\M03\M03.cshtml" />
+    <Content Include="Views\M04\M04.cshtml" />
+    <Content Include="Views\M05\M05.cshtml" />
+    <Content Include="Views\M06\M06.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

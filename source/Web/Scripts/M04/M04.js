@@ -1,9 +1,9 @@
 ﻿
-var M02 = null;
+var M04 = null;
 
 $(function () {
 
-    M02 = {
+    M04 = {
 
         /**
          * 読込完了時イベント
@@ -18,7 +18,14 @@ $(function () {
          */
         SetEvent: function () {
         },
+
+        /**
+         * 取消申請.
+         */
+        onClickCancel: function () {
+            $('.popupM06').addClass('show').fadeIn();
+        }
     };
 
-    M02.OnReady();
+    M04.OnReady();
 });

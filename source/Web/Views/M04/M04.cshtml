@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "休暇一覧";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts{
+    @Html.Js("~/Scripts/Common/Common.js")
+    @Html.Js("~/Scripts/M04/M04.js")
+}
+
+@Html.Partial("~/Views/M05/M05.cshtml")
+@Html.Partial("~/Views/M06/M06.cshtml")
+
+<div class="container-sm">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span>有給休暇取得日</span>
+            <span>有給休暇申請日</span>
+            <span>有給休暇承認日</span>
+            <span>承認状態</span>
+            <span></span>
+        </li>
+        <li class="list-group-item">
+            <span>2020年5月31日</span>
+            <span>2020年5月31日</span>
+            <span>2020年5月31日</span>
+            <span>承認済み</span>
+            <input type="button" class="btn btn-primary" value="申請取消" onclick="M04.onClickCancel()">
+        </li>
+    </ul>
+</div>
