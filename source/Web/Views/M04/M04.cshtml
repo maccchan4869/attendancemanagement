@@ -3,6 +3,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Styles{
+    @Html.Css("~/Content/M04/M04.css")
+}
 
 @section Scripts{
     @Html.Js("~/Scripts/Common/Common.js")
@@ -12,21 +15,46 @@
 @Html.Partial("~/Views/M05/M05.cshtml")
 @Html.Partial("~/Views/M06/M06.cshtml")
 
-<div class="container-sm">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <span>有給休暇取得日</span>
-            <span>有給休暇申請日</span>
-            <span>有給休暇承認日</span>
-            <span>承認状態</span>
-            <span></span>
-        </li>
-        <li class="list-group-item">
-            <span>2020年5月31日</span>
-            <span>2020年5月31日</span>
-            <span>2020年5月31日</span>
-            <span>承認済み</span>
-            <input type="button" class="btn btn-primary" value="申請取消" onclick="M04.onClickCancel()">
-        </li>
-    </ul>
+<div class="container M04_MainArea">
+    <table class="table tblM04 table-hover">
+        <thead class="thead-light">
+            <tr>
+                <td class="planDay">有給休暇申請取得日</td>
+                <td class="applyDay">有給休暇申請申請日</td>
+                <td class="approveDay">有給休暇申請承認日</td>
+                <td class="approveStatus">承認状態</td>
+                <td class="applyCancels">申請取消ボタン</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="planDay">2020年5月31日</td>
+                <td class="applyDay">2020年5月31日</td>
+                <td class="approveDay">2020年5月31日</td>
+                <td class="approveStatus">承認済み</td>
+                <td class="applyCancels"><input class="btn btn-danger onClickCancel" type="button" value="申請取消" /></td>
+            </tr>
+            <tr>
+                <td class="planDay">2020年5月31日</td>
+                <td class="applyDay">2020年5月31日</td>
+                <td class="approveDay">2020年5月31日</td>
+                <td class="approveStatus">承認済み</td>
+                <td class="applyCancels"><input class="btn btn-danger onClickCancel" type="button" value="申請取消" /></td>
+            </tr>
+            <tr>
+                <td class="planDay">2020年5月31日</td>
+                <td class="applyDay">2020年5月31日</td>
+                <td class="approveDay">2020年5月31日</td>
+                <td class="approveStatus">承認済み</td>
+                <td class="applyCancels"><input class="btn btn-danger onClickCancel" type="button" value="申請取消" /></td>
+            </tr>
+            <tr>
+                <td class="planDay">2020年5月31日</td>
+                <td class="applyDay">2020年5月31日</td>
+                <td class="approveDay">2020年5月31日</td>
+                <td class="approveStatus">承認済み</td>
+                <td class="applyCancels"><input class="btn btn-danger onClickCancel" type="button" value="申請取消" /></td>
+            </tr>
+        </tbody>
+    </table>
 </div>

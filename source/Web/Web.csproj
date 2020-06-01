@@ -156,6 +156,10 @@
     <Content Include="Content\M01\M01.min.css">
       <DependentUpon>M01.css</DependentUpon>
     </Content>
+    <Content Include="Content\M04\M04.css" />
+    <Content Include="Content\M04\M04.min.css">
+      <DependentUpon>M04.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="compilerconfig.json" />
@@ -303,6 +307,7 @@
     <Content Include="Views\M04\M04.cshtml" />
     <Content Include="Views\M05\M05.cshtml" />
     <Content Include="Views\M06\M06.cshtml" />
+    <Content Include="Scss\M04\M04.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

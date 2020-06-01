@@ -6,5 +6,9 @@
   {
     "outputFile": "Content/M01/M01.css",
     "inputFile": "Scss/M01/M01.scss"
+  },
+  {
+    "outputFile": "Content/M04/M04.css",
+    "inputFile": "Scss/M04/M04.scss"
   }
 ]

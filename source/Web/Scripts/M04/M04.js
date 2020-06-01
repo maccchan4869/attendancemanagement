@@ -11,12 +11,16 @@ $(function () {
         OnReady: function () {
             Common.HeaderSetEvent();
             Common.CommonSetEvent();
+            M04.SetEvent();
         },
 
         /**
          * イベント設定.
          */
         SetEvent: function () {
+            $(".onClickCancel").click(function () {
+                M04.onClickCancel();
+            });
         },
 
         /**
