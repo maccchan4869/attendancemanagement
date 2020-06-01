@@ -46,6 +46,11 @@ $(function () {
          */
         HeaderSetEvent: function () {
 
+            // 作業入力押下.
+            $("#repotWork").click(function () {
+                Common.Send(CommonConst.PAGE_URL.M02);
+            });
+
             // 休暇一覧押下.
             $("#vacationList").click(function () {
                 Common.Send(CommonConst.PAGE_URL.M04);
