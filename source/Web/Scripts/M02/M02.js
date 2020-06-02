@@ -1,5 +1,6 @@
 ﻿
 var M02 = null;
+var WEEKS = ["日", "月", "火", "水", "木", "金", "土"];
 
 $(function () {
 
@@ -24,60 +25,66 @@ $(function () {
          * カレンダー描画.
          */
         SetCalendar: function () {
-            const WEEKS = ["日", "月", "火", "水", "木", "金", "土"];
-            const TODAY = new Date();
-            const YEAR = TODAY.getFullYear();
-            const MONTH = TODAY.getMonth() + 1;
-
-            // 月の最初の日を取得
-            var firstDate = new Date(YEAR, MONTH - 1, 1);
-            // 月の最後の日を取得
-            var endDate = new Date(YEAR, MONTH, 0);
-            // 月の末日
-            var endDayCount = endDate.getDate();
-            // 前月の最後の日の情報
-            var lastMonthEndDate = new Date(YEAR, MONTH - 1, 0);
-            // 前月の末日
-            var lastMonthendDayCount = lastMonthEndDate.getDate();
-            // 月の最初の日の曜日を取得
-            var startDay = firstDate.getDay();
-            // 日にちのカウント
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth();
+            var dispMonth = month + 1;
             var dayCount = 1;
 
-             // HTMLを組み立てる変数
+            //  今月の情報
+            /** 今月の月初日 */
+            var firstDate = new Date(year, month, 1);
+            /** 今月の月末日 */
+            var endDate = new Date(year, dispMonth, 0);
+            /** 今月の日数 */
+            var endDayCount = endDate.getDate();
+            /** 今月の月初日の曜日 */
+            var firstDay = firstDate.getDay();
+
+            //  先月の情報
+            /** 先月の月末日 */
+            var lastMonthEndDate = new Date(year, month, 0);
+            /** 先月の日数 */
+            var lastMonthendDayCount = lastMonthEndDate.getDate();
+
+            // カレンダーを構成するHTML
             var calendarHtml = "";
 
-            calendarHtml += "<h1>" + YEAR + "/" + MONTH + "</h1>";
+            calendarHtml += "<h1>" + year + "/" + dispMonth + "</h1>";
             calendarHtml += "<table>";
 
             // 曜日の行を作成
-            for (let i = 0; i < WEEKS.length; i++) {
+            calendarHtml += "<thead><tr>";
+            for (var i = 0; i < WEEKS.length; i++) {
                 calendarHtml += "<td>" + WEEKS[i] + "</td>";
             }
+            calendarHtml += "</tr></thead>";
 
-            for (let w = 0; w < 5; w++) {
+            // カレンダーを描画
+            calendarHtml += "<tbody>";
+            for (var w = 0; w < 5; w++) {
                 calendarHtml += "<tr>";
-
-                for (let d = 0; d < 7; d++) {
-                    if (w === 0 && d < startDay) {
-                        // 1行目で1日の曜日の前
-                        let num = lastMonthendDayCount - startDay + d + 1;
-                        calendarHtml += '<td class="is-disabled">' + num + "</td>";
+                for (var d = 0; d < WEEKS.length; d++) {
+                    if (w === 0 && d < firstDay) {
+                        // 先月描画
+                        var lastMonthDay = lastMonthendDayCount - firstDay + d + 1;
+                        calendarHtml += '<td>' + lastMonthDay + "</td>";
                     } else if (dayCount > endDayCount) {
-                        // 末尾の日数を超えた
-                        let num = dayCount - endDayCount;
-                        calendarHtml += '<td class="is-disabled">' + num + "</td>";
+                        // 来月描画
+                        var nextMonthDay = dayCount - endDayCount;
+                        calendarHtml += '<td>' + nextMonthDay + "</td>";
                         dayCount++;
                     } else {
+                        // 今月描画
                         calendarHtml += "<td>" + dayCount + "</td>";
                         dayCount++;
                     }
                 }
                 calendarHtml += "</tr>";
             }
-            calendarHtml += "</table>";
+            calendarHtml += "</tbody></table>";
 
-            $("#calendar").innerHTML = calendarHtml;            
+            $("#calendar").html(calendarHtml);            
         }
     };
 
