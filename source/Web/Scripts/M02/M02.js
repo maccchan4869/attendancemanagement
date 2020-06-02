@@ -13,12 +13,18 @@ $(function () {
             Common.HeaderSetEvent();
             Common.CommonSetEvent();
             M02.SetCalendar();
+            M02.SetEvent();
         },
 
         /**
          * イベント設定.
          */
         SetEvent: function () {
+
+            // 作業入力画面へ遷移
+            $(".nowMonth").click(function () {
+                $('.popupM03').addClass('show').fadeIn();
+            });
         },
 
         /**
@@ -51,10 +57,10 @@ $(function () {
             var calendarHtml = "";
 
             calendarHtml += "<h1>" + year + "/" + dispMonth + "</h1>";
-            calendarHtml += "<table>";
+            calendarHtml += "<table class=table>";
 
             // 曜日の行を作成
-            calendarHtml += "<thead><tr>";
+            calendarHtml += '<thead class="thead-light"><tr>';
             for (var i = 0; i < WEEKS.length; i++) {
                 calendarHtml += "<td>" + WEEKS[i] + "</td>";
             }
@@ -76,7 +82,7 @@ $(function () {
                         dayCount++;
                     } else {
                         // 今月描画
-                        calendarHtml += "<td>" + dayCount + "</td>";
+                        calendarHtml += '<td class="nowMonth">' + dayCount + "</td>";
                         dayCount++;
                     }
                 }
