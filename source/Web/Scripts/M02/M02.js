@@ -1,6 +1,7 @@
 ﻿
 var M02 = null;
 var WEEKS = ["日", "月", "火", "水", "木", "金", "土"];
+var DISP_WEEKS = 5;
 
 $(function () {
 
@@ -68,7 +69,7 @@ $(function () {
 
             // カレンダーを描画
             calendarHtml += "<tbody>";
-            for (var w = 0; w < 5; w++) {
+            for (var w = 0; w < DISP_WEEKS; w++) {
                 calendarHtml += "<tr>";
                 for (var d = 0; d < WEEKS.length; d++) {
                     if (w === 0 && d < firstDay) {
@@ -91,6 +92,13 @@ $(function () {
             calendarHtml += "</tbody></table>";
 
             $("#calendar").html(calendarHtml);            
+        },
+
+        /**
+         * プルダウン選択イベント.
+         */
+        onChangeTargetYaerMonth: function () {
+            alert("変更");
         }
     };
 
