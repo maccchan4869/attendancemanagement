@@ -13,8 +13,7 @@ $(function () {
         OnReady: function () {
             Common.HeaderSetEvent();
             Common.CommonSetEvent();
-            M02.SetCalendar();
-            M02.SetEvent();
+            M02.SetCalendarIntiVal();
         },
 
         /**
@@ -29,20 +28,30 @@ $(function () {
         },
 
         /**
-         * カレンダー描画.
+         * カレンダーの初期値設定.
          */
-        SetCalendar: function () {
+        SetCalendarIntiVal: function () {
             var today = new Date();
             var year = today.getFullYear();
             var month = today.getMonth();
-            var dispMonth = month + 1;
+            M02.SetCalendar(year, month);
+        },
+
+        /**
+         * カレンダー描画.
+         * 
+         * @param  {Object} pYear  年
+         * @param  {Object} pMonth 月
+         */
+        SetCalendar: function (pYear, pMonth) {
+            var dispMonth = pMonth + 1;
             var dayCount = 1;
 
             //  今月の情報
             /** 今月の月初日 */
-            var firstDate = new Date(year, month, 1);
+            var firstDate = new Date(pYear, pMonth, 1);
             /** 今月の月末日 */
-            var endDate = new Date(year, dispMonth, 0);
+            var endDate = new Date(pYear, dispMonth, 0);
             /** 今月の日数 */
             var endDayCount = endDate.getDate();
             /** 今月の月初日の曜日 */
@@ -50,14 +59,14 @@ $(function () {
 
             //  先月の情報
             /** 先月の月末日 */
-            var lastMonthEndDate = new Date(year, month, 0);
+            var lastMonthEndDate = new Date(pYear, pMonth, 0);
             /** 先月の日数 */
             var lastMonthendDayCount = lastMonthEndDate.getDate();
 
             // カレンダーを構成するHTML
             var calendarHtml = "";
 
-            calendarHtml += "<h1>" + year + "/" + dispMonth + "</h1>";
+            calendarHtml += "<h1>" + pYear + "/" + dispMonth + "</h1>";
             calendarHtml += "<table class=table>";
 
             // 曜日の行を作成
@@ -91,14 +100,21 @@ $(function () {
             }
             calendarHtml += "</tbody></table>";
 
-            $("#calendar").html(calendarHtml);            
+            $("#calendar").html(calendarHtml);
+
+            M02.SetEvent();
         },
 
         /**
          * プルダウン選択イベント.
+         * @param  {Object} obj プルダウン選択DOM
          */
-        onChangeTargetYaerMonth: function () {
-            alert("変更");
+        onChangeTargetYaerMonth: function (obj) {
+            var idx = obj.selectedIndex;
+            var value = obj.options[idx].value.split(",");
+            var year = Number(value[0]);
+            var month = Number(value[1]);
+            M02.SetCalendar(Number(year), Number(month));
         }
     };
 
