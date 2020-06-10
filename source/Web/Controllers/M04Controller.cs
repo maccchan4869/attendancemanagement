@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using BusinessLogic.M04;
+using System.Web.Mvc;
+using ViewModel;
 
 namespace Web.Controllers
 {
@@ -7,6 +9,15 @@ namespace Web.Controllers
         public ActionResult M04()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Ready()
+        {
+            var logic = new M04BusinessLogic();
+            M04ViewModel ret = logic.Ready();
+
+            return Json(new { result = ret });
         }
     }
 }

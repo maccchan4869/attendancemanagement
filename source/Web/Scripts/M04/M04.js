@@ -12,6 +12,7 @@ $(function () {
             Common.HeaderSetEvent();
             Common.CommonSetEvent();
             M04.SetEvent();
+            Common.Post("/M04/Ready", '', M04.SetView);
         },
 
         /**
@@ -28,6 +29,14 @@ $(function () {
          */
         onClickCancel: function () {
             $('.popupM06').addClass('show').fadeIn();
+        },
+
+        /**
+         * 初期データ表示.
+         * @param  {Object} aData 取得データ
+         */
+        SetView: function (aData) {
+            alert("確認");
         }
     };
 
