@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8512D956-BD12-460B-93ED-5D885228D28E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{5B7BD044-C82F-482B-93A6-804E33C8534E}</Project>
       <Name>ViewModel</Name>
