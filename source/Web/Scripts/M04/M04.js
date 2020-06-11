@@ -36,7 +36,17 @@ $(function () {
          * @param  {Object} aData 取得データ
          */
         SetView: function (aData) {
-            alert("確認");
+            var tbodyHtml = "";
+            for (var i = 0; i < aData.M04VacationModel.length; i++) {
+                tbodyHtml += '<tr>';
+                tbodyHtml += '<td class="planDay">' + aData.M04VacationModel[i].VacationDay + '</td >';
+                tbodyHtml += '<td class="applyDay">' + aData.M04VacationModel[i].ApplyDay + '</td >';
+                tbodyHtml += '<td class="approveDay">' + aData.M04VacationModel[i].ApproveDay + '</td >';
+                tbodyHtml += '<td class="approveStatus">' + aData.M04VacationModel[i].ApplyStatus + '</td >';
+                tbodyHtml += '<td class="applyCancels"><input class="btn btn-danger onClickCancel" type="button" value="申請取消"/></td>';
+                tbodyHtml += '</tr>';
+            }
+            $('.M04_tbody').append(tbodyHtml);
         }
     };
 
