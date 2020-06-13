@@ -6,12 +6,14 @@ namespace Web.Controllers
 {
     public class M04Controller : Controller
     {
+        [Authorize]
         public ActionResult M04()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Ready()
         {
             var logic = new M04BusinessLogic();
