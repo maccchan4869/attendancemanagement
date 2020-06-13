@@ -175,6 +175,9 @@
     <Compile Include="Common\HTMLHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\M01Controller.cs" />
+    <Compile Include="Controllers\M02Controller.cs" />
+    <Compile Include="Controllers\M04Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,9 +195,20 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Common\Common.css" />
+    <Content Include="Content\Common\Common.min.css">
+      <DependentUpon>Common.css</DependentUpon>
+    </Content>
+    <Content Include="Content\M01\M01.css" />
+    <Content Include="Content\M01\M01.min.css">
+      <DependentUpon>M01.css</DependentUpon>
+    </Content>
+    <Content Include="Content\M04\M04.css" />
+    <Content Include="Content\M04\M04.min.css">
+      <DependentUpon>M04.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -209,6 +223,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\Common\Common.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -218,6 +233,8 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -228,6 +245,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\M01\M01.js" />
+    <Content Include="Scripts\M02\M02.js" />
+    <Content Include="Scripts\M04\M04.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -345,6 +365,15 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\M01\M01.cshtml" />
+    <Content Include="Views\M02\M02.cshtml" />
+    <Content Include="Views\M03\M03.cshtml" />
+    <Content Include="Views\M04\M04.cshtml" />
+    <Content Include="Views\M05\M05.cshtml" />
+    <Content Include="Views\M06\M06.cshtml" />
+    <Content Include="Scss\Common\Common.scss" />
+    <Content Include="Scss\M01\M01.scss" />
+    <Content Include="Scss\M04\M04.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,6 +388,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{45c9f1ce-41f5-4733-988e-3dab5904860e}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
+      <Project>{3e7a7e4b-7a48-4b40-9fc2-d6f9c1fb9c47}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

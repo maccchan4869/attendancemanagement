@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "カレンダー画面";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+}
+
+@section Scripts{
+    @Html.Js("~/Scripts/Common/Common.js")
+    @Html.Js("~/Scripts/M02/M02.js")
+}
+
+@Html.Partial("~/Views/M03/M03.cshtml")
+@Html.Partial("~/Views/M05/M05.cshtml")
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div>
+                <span class="">当月作業時間</span>
+                <span class="">160h</span>
+            </div>
+            <div>
+                <span class="">当月残業時間</span>
+                <span class="">20h</span>
+            </div>
+            <div>
+                <span class="">有給残り日数</span>
+                <span class="">10日</span>
+            </div>
+            <div>
+                <span class="">年間有給日数</span>
+                <span class="">20日</span>
+            </div>
+            <div>
+                <span class="">早退日数</span>
+                <span class="">1日</span>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <select class="TargetYaerMonth" onChange="M02.onChangeTargetYaerMonth(this)">
+                <option value="2020,5">2020年6月</option>
+                <option value="2020,4">2020年5月</option>
+                <option value="2020,3">2020年4月</option>
+            </select>
+            <div id="calendar">
+            </div>
+        </div>
+    </div>
+</div>

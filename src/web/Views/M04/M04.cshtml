@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "休暇一覧";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    @Html.Css("~/Content/M04/M04.css")
+}
+
+@section Scripts{
+    @Html.Js("~/Scripts/Common/Common.js")
+    @Html.Js("~/Scripts/M04/M04.js")
+}
+
+@Html.Partial("~/Views/M05/M05.cshtml")
+@Html.Partial("~/Views/M06/M06.cshtml")
+
+<div class="container M04_MainArea">
+    <table class="table tblM04 table-hover">
+        <thead class="thead-light">
+            <tr>
+                <td class="planDay">有給休暇申請取得日</td>
+                <td class="applyDay">有給休暇申請申請日</td>
+                <td class="approveDay">有給休暇申請承認日</td>
+                <td class="approveStatus">承認状態</td>
+                <td class="applyCancels">申請取消ボタン</td>
+            </tr>
+        </thead>
+        <tbody class="M04_tbody">
+        </tbody>
+    </table>
+</div>
