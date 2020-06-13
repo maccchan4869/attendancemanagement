@@ -60,12 +60,6 @@ $(function () {
             $("#vacationApply").click(function () {
                 $('.popupM05').addClass('show').fadeIn();
             });
-
-            // ログアウト押下.
-            $("#btnLogout").click(function () {
-                Common.Send(CommonConst.PAGE_URL.M01);
-            });
-
         },
 
         /** 

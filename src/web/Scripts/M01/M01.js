@@ -16,13 +16,6 @@ $(function () {
          */
         SetEvent: function () {
         },
-
-        /**
-         * ログイン処理.
-         */
-        onClickLogin: function () {
-            $("#btnLogin").click(Common.Send(CommonConst.PAGE_URL.M02));
-        }
     };
 
     M01.OnReady();
