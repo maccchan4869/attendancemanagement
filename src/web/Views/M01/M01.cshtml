@@ -1,27 +1,22 @@
 ﻿@{
-    ViewBag.Title = "ログイン画面";
+    ViewBag.Title = "メニュー画面";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section Styles{
-    @Html.Css("~/Content/M01/M01.css")
 }
 
 @section Scripts{
-    @Html.Js("~/Scripts/Common/Common.js")
-    @Html.Js("~/Scripts/M01/M01.js")
 }
 
-<div class="container M01_MainArea">
-    <div class="inputLoginIdArea">
-        <input type="text" id="LoginId" placeholder="ログインID">
-    </div>
-    <div class="inputPasswordArea">
-        <input type="text" id="Password" placeholder="パスワード">
-    </div>
-    <div class="btnArea">
-        <input type="button" class="btn btn-primary" id="btnLogin" value="ログイン" onclick="M01.onClickLogin()">
-    </div>
-</div>
+@* 権限によるページ切替 *@
+@if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
+{
+    @Html.Partial("~/Views/M01/_AminUserMenu.cshtml")
+}
+else
+{
+    @Html.Partial("~/Views/M01/_UserMenu.cshtml")
+}
 
 

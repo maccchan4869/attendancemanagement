@@ -17,15 +17,17 @@ namespace web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            RoleManager = roleManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -49,6 +51,18 @@ namespace web.Controllers
             private set
             {
                 _userManager = value;
+            }
+        }
+
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
             }
         }
 
@@ -79,6 +93,7 @@ namespace web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    CreateAdmin(model.Email, model.Password);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -156,14 +171,17 @@ namespace web.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    // ロールの作成
+                    CreateRole();
+
                     // アカウント確認とパスワード リセットを有効にする方法の詳細については、https://go.microsoft.com/fwlink/?LinkID=320771 を参照してください
                     // このリンクを含む電子メールを送信します
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "アカウントの確認", "このリンクをクリックすることによってアカウントを確認してください <a href=\"" + callbackUrl + "\">こちら</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("M01", "M01");
                 }
                 AddErrors(result);
             }
@@ -449,7 +467,7 @@ namespace web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("M02", "M02");
+            return RedirectToAction("M01", "M01");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
@@ -479,6 +497,28 @@ namespace web.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+        }
+
+        public ActionResult CreateRole()
+        {
+            //RoleManagerの取得
+            var roleManager = this.HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            //Roleの生成
+            roleManager.Create(new ApplicationRole { Name = "admin" });
+
+            return Content("create role");
+        }
+
+        public ActionResult CreateAdmin(string Email, string Password)
+        {
+            //UserManagerの取得
+            var userManager = this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            //adminにするユーザーの検索
+            var user = userManager.Find(Email, Password);
+            //紐づけ
+            userManager.AddToRole(user.Id, "admin");
+
+            return Content("create admin");
         }
         #endregion
     }

@@ -182,6 +182,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006130628124_InitialCreate.cs" />
+    <Compile Include="Migrations\202006130628124_InitialCreate.Designer.cs">
+      <DependentUpon>202006130628124_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006150633397_AddRole.cs" />
+    <Compile Include="Migrations\202006150633397_AddRole.Designer.cs">
+      <DependentUpon>202006150633397_AddRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -374,6 +383,8 @@
     <Content Include="Scss\Common\Common.scss" />
     <Content Include="Scss\M01\M01.scss" />
     <Content Include="Scss\M04\M04.scss" />
+    <Content Include="Views\M01\_UserMenu.cshtml" />
+    <Content Include="Views\M01\_AminUserMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,6 +409,14 @@
       <Project>{3e7a7e4b-7a48-4b40-9fc2-d6f9c1fb9c47}</Project>
       <Name>ViewModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202006130628124_InitialCreate.resx">
+      <DependentUpon>202006130628124_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006150633397_AddRole.resx">
+      <DependentUpon>202006150633397_AddRole.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
