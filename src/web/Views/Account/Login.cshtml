@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -40,6 +44,9 @@
                     </div>
                 }
             </section>
+            <p>
+                @Html.ActionLink("新規ユーザーとして登録する", "Register")
+            </p>
         </div>
     </div>
 </div>
