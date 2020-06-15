@@ -79,6 +79,9 @@ namespace web.Models
         [Display(Name = "パスワードの確認入力")]
         [Compare("Password", ErrorMessage = "パスワードと確認のパスワードが一致しません。")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "管理者として登録する")]
+        public bool IsAdmin { get; set; }
     }
 
     public class ResetPasswordViewModel

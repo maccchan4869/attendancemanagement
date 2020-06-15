@@ -66,6 +66,19 @@ namespace web.Controllers
             }
         }
 
+        /// <summary>
+        /// 権限の新規作成
+        /// </summary>
+        public ActionResult CreateRole()
+        {
+            //RoleManagerの取得
+            var roleManager = this.HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            //Roleの生成
+            roleManager.Create(new ApplicationRole { Name = "admin" });
+
+            return Content("create role");
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -93,7 +106,6 @@ namespace web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    CreateAdmin(model.Email, model.Password);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -171,9 +183,10 @@ namespace web.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
-                    // ロールの作成
-                    CreateRole();
+                    if (model.IsAdmin)
+                    {
+                        CreateAdmin(model.Email, model.Password);
+                    }
 
                     // アカウント確認とパスワード リセットを有効にする方法の詳細については、https://go.microsoft.com/fwlink/?LinkID=320771 を参照してください
                     // このリンクを含む電子メールを送信します
@@ -499,17 +512,10 @@ namespace web.Controllers
             }
         }
 
-        public ActionResult CreateRole()
-        {
-            //RoleManagerの取得
-            var roleManager = this.HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
-            //Roleの生成
-            roleManager.Create(new ApplicationRole { Name = "admin" });
-
-            return Content("create role");
-        }
-
-        public ActionResult CreateAdmin(string Email, string Password)
+        /// <summary>
+        /// ユーザーに権限を付与する
+        /// </summary>
+        private ActionResult CreateAdmin(string Email, string Password)
         {
             //UserManagerの取得
             var userManager = this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
