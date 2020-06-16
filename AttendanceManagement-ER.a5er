@@ -1,8 +1,8 @@
-﻿# A5:ER FORMAT:14
+﻿# A5:ER FORMAT:12
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright (C)2007 m.matsubara
 # A5:SQL Mk-2 Copyright (C)1997 m.matsubara
-#  https://a5m2.mmatsubara.com
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
 
 [Manager]
 ProjectName=AttendanceManagement
@@ -34,9 +34,111 @@ DefaultPkIndexName=%0:s_PKI
 DefaultIndexName=%0:s_IX%1:d
 DefaultFkName=%0:s_FK%1:d
 SqlSeparator=0
-UpperCaseKeyword=0
 ShowTag=1
 ShowCommonAttributes=0
+
+[Relation]
+Entity1=tbm_VacationDays
+Entity2=tbd_VacationInfo
+RelationType1=2
+RelationType2=3
+Fields1=LengthWork
+Fields2=LengthWork
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1974,8026,1837,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=197
+Bar2=803
+Bar3=184
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=tbm_User
+Entity2=tbd_VacationInfo
+RelationType1=2
+RelationType2=3
+Fields1=UserId
+Fields2=UserId
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2223,7777,2715,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=222
+Bar2=778
+Bar3=272
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=tbm_VacationDays
+LName=休暇日数マスタ
+Comment=
+TableOption=
+Page=MAIN
+Left=350
+Top=450
+Field="勤続年数","LengthWork","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="休暇付与日数","VacationGrantDays","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日","CreateDateTime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日","UpdateDateTime","datetime",,,"","",$FFFFFFFF,""
+Field="行バージョン","Rev","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Tag=MVD
+Color=$000000
+BkColor=$FFCC66
+ModifiedDateTime=20200616085156
+Position="MAIN",350,450
+
+[Relation]
+Entity1=tbd_VacationInfo
+Entity2=tbd_Vacation
+RelationType1=1
+RelationType2=3
+Fields1=UserId
+Fields2=
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1437,8563,1437,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=144
+Bar2=856
+Bar3=144
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=tbd_VacationInfo
+LName=休暇情報
+Comment=
+TableOption=
+Page=MAIN
+Left=800
+Top=450
+Field="ユーザーID","UserId","varchar(20)","NOT NULL",0,"","",$FFFFFFFF,""
+Field="申請可能開始日","ApplyStartDay","date","NOT NULL",1,"","",$FFFFFFFF,""
+Field="申請可能終了日","ApplyEndDay","date","NOT NULL",,"","",$FFFFFFFF,""
+Field="休暇取得可能日数","VacationDays","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="勤続年数","LengthWork","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="作成日","CreateDateTime","datetime","NOT NULL",,"","",$FFFFFFFF,""
+Field="更新日","UpdateDateTime","datetime",,,"","",$FFFFFFFF,""
+Field="行バージョン","Rev","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Tag=TVI
+Color=$000000
+BkColor=$00F5FF
+ModifiedDateTime=20200616102453
+Position="MAIN",800,450
 
 [Entity]
 PName=tbm_User
@@ -44,12 +146,13 @@ LName=ユーザーマスタ
 Comment=
 TableOption=
 Page=MAIN
-Left=300
-Top=800
+Left=1000
+Top=950
 Field="ユーザーID","UserId","varchar(20)","NOT NULL",0,"","",$FFFFFFFF,""
 Field="ユーザー名","UserName","nvarchar(256)","NOT NULL",,"","",$FFFFFFFF,""
 Field="メールアドレス","MailAddress","varchar(256)","NOT NULL",,"","",$FFFFFFFF,""
 Field="入社年月日","JoinCompanyDate","Date","NOT NULL",,"","",$FFFFFFFF,""
+Field="初年度有給付与日","FirstSupplyHolidays","Date","NOT NULL",,"","",$FFFFFFFF,""
 Field="作成日","CreateDateTime","datetime","NOT NULL",,"","",$FFFFFFFF,""
 Field="更新日","UpdateDateTime","datetime",,,"","",$FFFFFFFF,""
 Field="行バージョン","Rev","TIMESTAMP","NOT NULL",,"","",$FFFFFFFF,""
@@ -57,9 +160,8 @@ EffectMode=None
 Tag=MU
 Color=$000000
 BkColor=$FFCC66
-ModifiedDateTime=20200615225448
-Position="MAIN",300,800
-ZOrder=0
+ModifiedDateTime=20200616081524
+Position="MAIN",1000,950
 
 [Entity]
 PName=tbd_Report
@@ -67,8 +169,8 @@ LName=作業報告
 Comment=
 TableOption=
 Page=MAIN
-Left=750
-Top=1450
+Left=1450
+Top=1600
 Field="ユーザーID","UserId","varchar(20)","NOT NULL",0,"","",$FFFFFFFF,""
 Field="日付","WorkDay","date","NOT NULL",1,"","",$FFFFFFFF,""
 Field="作業時間","WorkTime","numeric(4,2)","NOT NULL",,"","",$FFFFFFFF,""
@@ -83,8 +185,7 @@ Tag=TR
 Color=$000000
 BkColor=$00F5FF
 ModifiedDateTime=20200615225452
-Position="MAIN",750,1450
-ZOrder=3
+Position="MAIN",1450,1600
 
 [Entity]
 PName=tbm_VacationType
@@ -92,8 +193,8 @@ LName=休暇種別マスタ
 Comment=
 TableOption=
 Page=MAIN
-Left=1150
-Top=300
+Left=1850
+Top=450
 Field="種別CD","TypeCd","varchar(2)","NOT NULL",0,"","",$FFFFFFFF,""
 Field="種別名","TypeName","nvarchar(30)","NOT NULL",,"","",$FFFFFFFF,""
 Field="作成日","CreateDateTime","datetime","NOT NULL",,"","",$FFFFFFFF,""
@@ -104,8 +205,7 @@ Tag=MVT
 Color=$000000
 BkColor=$FFCC66
 ModifiedDateTime=20200615224808
-Position="MAIN",1150,300
-ZOrder=9
+Position="MAIN",1850,450
 
 [Entity]
 PName=tbm_ExpenseType
@@ -113,8 +213,8 @@ LName=経費種別マスタ
 Comment=
 TableOption=
 Page=MAIN
-Left=1150
-Top=1050
+Left=1850
+Top=1200
 Field="種別CD","TypeCd","varchar(2)","NOT NULL",0,"","",$FFFFFFFF,""
 Field="種別名","TypeName","nvarchar(30)","NOT NULL",,"","",$FFFFFFFF,""
 Field="作成日","CreateDateTime","datetime","NOT NULL",,"","",$FFFFFFFF,""
@@ -125,8 +225,7 @@ Tag=MET
 Color=$000000
 BkColor=$FFCC66
 ModifiedDateTime=20200615224800
-Position="MAIN",1150,1050
-ZOrder=10
+Position="MAIN",1850,1200
 
 [Entity]
 PName=tbm_ApplyStatus
@@ -134,8 +233,8 @@ LName=申請状態マスタ
 Comment=
 TableOption=
 Page=MAIN
-Left=1500
-Top=550
+Left=2200
+Top=700
 Field="申請CD","ApplyCd","varchar(2)","NOT NULL",0,"","",$FFFFFFFF,""
 Field="申請状態","ApplyStatus","varchar(2)","NOT NULL",1,"","",$FFFFFFFF,""
 Field="申請状態名","StatusName","nvarchar(30)","NOT NULL",,"","",$FFFFFFFF,""
@@ -147,8 +246,7 @@ Tag=MAS
 Color=$000000
 BkColor=$FFCC66
 ModifiedDateTime=20200615224744
-Position="MAIN",1500,550
-ZOrder=11
+Position="MAIN",2200,700
 
 [Entity]
 PName=tbd_Vacation
@@ -156,8 +254,8 @@ LName=休暇申請
 Comment=
 TableOption=
 Page=MAIN
-Left=750
-Top=300
+Left=1450
+Top=450
 Field="ユーザーID","UserId","varchar(20)","NOT NULL",0,"","",$FFFFFFFF,""
 Field="休暇取得日","VacationDay","date","NOT NULL",1,"","",$FFFFFFFF,""
 Field="種別CD","TypeCd","varchar(2)","NOT NULL",,"","",$FFFFFFFF,""
@@ -171,8 +269,7 @@ Tag=TV
 Color=$000000
 BkColor=$00F5FF
 ModifiedDateTime=20200615230337
-Position="MAIN",750,300
-ZOrder=12
+Position="MAIN",1450,450
 
 [Relation]
 Entity1=tbm_User
@@ -183,17 +280,16 @@ Fields1=UserId
 Fields2=UserId
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,2257,7743,1012,R,R,""
+Position="MAIN",0,6652,7533,1012,R,R
 Dependence=1
 Caption=
 PName=
 LineMode=0
-Bar1=226
-Bar2=774
+Bar1=665
+Bar2=753
 Bar3=101
 TermPos1=R
 TermPos2=R
-ZOrder=16
 
 [Relation]
 Entity1=tbm_User
@@ -204,7 +300,7 @@ Fields1=UserId
 Fields2=UserId
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,3796,6204,3499,R,R,""
+Position="MAIN",0,3796,6204,3499,R,R
 Dependence=1
 Caption=
 PName=
@@ -214,7 +310,6 @@ Bar2=620
 Bar3=350
 TermPos1=R
 TermPos2=R
-ZOrder=17
 
 [Relation]
 Entity1=tbm_VacationType
@@ -225,7 +320,7 @@ Fields1=TypeCd
 Fields2=TypeCd
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,1581,8419,1431,R,R,""
+Position="MAIN",0,1581,8419,1431,R,R
 Dependence=0
 Caption=
 PName=
@@ -235,7 +330,6 @@ Bar2=842
 Bar3=143
 TermPos1=R
 TermPos2=R
-ZOrder=18
 
 [Relation]
 Entity1=tbm_ApplyStatus
@@ -246,7 +340,7 @@ Fields1=ApplyCd,ApplyStatus
 Fields2=
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,1581,8419,8200,R,R,""
+Position="MAIN",0,1581,8419,8200,R,R
 Dependence=0
 Caption=
 PName=
@@ -256,20 +350,19 @@ Bar2=842
 Bar3=820
 TermPos1=R
 TermPos2=R
-ZOrder=19
 
 [Entity]
 PName=tbd_Expense
 LName=経費申請
 Comment=
 TableOption=
-Page=Main
-Left=800
-Top=850
+Page=MAIN
+Left=1500
+Top=1000
 Field="連番","\nSeq","int","NOT NULL",0,"","",$FFFFFFFF,""
 Field="ユーザーID","UserId","varchar(20)","NOT NULL",,"","",$FFFFFFFF,""
 Field="金額","\nPrice","int","NOT NULL",,"","",$FFFFFFFF,""
-Field="領収書","Receipt","varchar(20)",,,"","",$FFFFFFFF,""
+Field="領収書","Receipt","varchar(20)","NOT NULL",,"","",$FFFFFFFF,""
 Field="種別CD","TypeCd","varchar(2)","NOT NULL",,"","",$FFFFFFFF,""
 Field="申請状態","ApplyStatus","varchar(2)","NOT NULL",,"","",$FFFFFFFF,""
 Field="メモ","Memo","nvarchar(256)",,,"","",$FFFFFFFF,""
@@ -280,9 +373,8 @@ EffectMode=None
 Tag=TE
 Color=$000000
 BkColor=$00F5FF
-ModifiedDateTime=20200615231059
-Position="Main",800,850
-ZOrder=20
+ModifiedDateTime=20200616084848
+Position="MAIN",1500,1000
 
 [Relation]
 Entity1=tbm_User
@@ -293,7 +385,7 @@ Fields1=UserId
 Fields2=UserId
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,3846,6154,3499,R,R,""
+Position="MAIN",0,3846,6154,3499,R,R
 Dependence=0
 Caption=
 PName=
@@ -303,7 +395,6 @@ Bar2=615
 Bar3=350
 TermPos1=R
 TermPos2=R
-ZOrder=22
 
 [Relation]
 Entity1=tbm_ExpenseType
@@ -314,7 +405,7 @@ Fields1=TypeCd
 Fields2=TypeCd
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,3846,6154,4383,R,R,""
+Position="MAIN",0,3846,6154,4383,R,R
 Dependence=0
 Caption=
 PName=
@@ -324,7 +415,6 @@ Bar2=615
 Bar3=438
 TermPos1=R
 TermPos2=R
-ZOrder=23
 
 [Relation]
 Entity1=tbm_ApplyStatus
@@ -335,7 +425,7 @@ Fields1=ApplyCd,ApplyStatus
 Fields2=
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,3846,6154,2465,R,R,""
+Position="MAIN",0,3846,6154,2465,R,R
 Dependence=0
 Caption=
 PName=
@@ -345,4 +435,3 @@ Bar2=615
 Bar3=246
 TermPos1=R
 TermPos2=R
-ZOrder=24
