@@ -11,16 +11,22 @@ namespace Model.M04
         /// <summary>有給休暇取得日</summary>
         public string VacationDay { get; set; } = string.Empty;
 
-        /// <summary>有給休暇申請日</summary>
-        public string ApplyDay { get; set; } = string.Empty;
+        /// <summary>種別CD</summary>
+        public string TypeCd { get; set; } = string.Empty;
 
-        /// <summary>有給休暇承認日</summary>
-        public string ApproveDay { get; set; } = string.Empty;
+        /// <summary>種別名</summary>
+        public string TypeName { get; set; } = string.Empty;
 
-        /// <summary>有給休暇承認状態</summary>
+        /// <summary>申請状態</summary>
         public string ApplyStatus { get; set; } = string.Empty;
+
+        /// <summary>申請状態名</summary>
+        public string StatusName { get; set; } = string.Empty;
 
         /// <summary>有給休暇承認状態CSS</summary>
         public string ApplyStatusCSS { get; set; } = string.Empty;
+
+        /// <summary>メモ</summary>
+        public string Memo { get; set; } = string.Empty;
     }
 }

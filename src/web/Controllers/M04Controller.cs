@@ -1,10 +1,11 @@
 ﻿using BusinessLogic.M04;
 using System.Web.Mvc;
 using ViewModel;
+using web.Controllers;
 
 namespace Web.Controllers
 {
-    public class M04Controller : Controller
+    public class M04Controller : CommonController
     {
         [Authorize]
         public ActionResult M04()
@@ -16,8 +17,9 @@ namespace Web.Controllers
         [Authorize]
         public ActionResult Ready()
         {
+            var userId = GetUserId();
             var logic = new M04BusinessLogic();
-            M04ViewModel ret = logic.Ready();
+            M04ViewModel ret = logic.Ready(userId);
 
             return Json(new { result = ret });
         }

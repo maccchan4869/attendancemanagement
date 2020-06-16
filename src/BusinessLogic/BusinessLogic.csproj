@@ -49,6 +49,10 @@
       <Project>{9f670b2d-a120-4d62-9f8c-c25b262fe2ec}</Project>
       <Name>Const</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{5FFB4F5F-050C-41E0-A7F2-D7EC114CA332}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{22d82fd8-f65f-4879-8b23-f9105276d837}</Project>
       <Name>Model</Name>
