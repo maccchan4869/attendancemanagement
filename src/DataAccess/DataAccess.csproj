@@ -68,5 +68,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Const\Const.csproj">
+      <Project>{9F670B2D-A120-4D62-9F8C-C25B262FE2EC}</Project>
+      <Name>Const</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

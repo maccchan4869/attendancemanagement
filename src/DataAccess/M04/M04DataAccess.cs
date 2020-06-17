@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using static Const.Const;
 
 namespace DataAccess.M04
 {
@@ -23,13 +24,14 @@ FROM
         ON TV.TypeCd = MVT.TypeCd
     INNER JOIN tbm_ApplyStatus AS MAS
         ON TV.ApplyStatus = MAS.ApplyStatus
-        AND MAS.ApplyCd = '01'
+        AND MAS.ApplyCd = @VacationCd
 WHERE
     TV.UserId = @UserId
 ";
             var para = new List<SqlParameter>
             {
-                new SqlParameter("@UserId", SqlDbType.NVarChar) { Value = UserId },
+                new SqlParameter("@UserId", SqlDbType.VarChar) { Value = UserId },
+                new SqlParameter("@VacationCd", SqlDbType.VarChar) { Value = APPLY_CD.VACATION },
             };
             return DBSelect(sql, para);
         }
