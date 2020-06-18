@@ -185,6 +185,7 @@ namespace web.Controllers
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     if (model.IsAdmin)
                     {
+                        CreateRole();
                         CreateAdmin(model.Email, model.Password);
                     }
 
