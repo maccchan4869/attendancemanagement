@@ -10,7 +10,10 @@ namespace Web.Controllers
         [Authorize]
         public ActionResult M04()
         {
-            return View();
+            var userId = GetUserId();
+            var logic = new M04BusinessLogic();
+            M04ViewModel vm = logic.Ready(userId);
+            return View("M04", vm);
         }
 
         [HttpPost]

@@ -7,10 +7,13 @@
       width: 100%;
       display: inline; }
 
-.planDay {
+.col-vacationDay {
   width: 20%;
   text-align: center; }
 
-.applyDay, .approveDay, .approveStatus, .applyCancels {
+.col-typeName, .col-statusName, .col-applyCancels {
   width: 10%;
   text-align: center; }
+
+.col-memo {
+  display: none; }

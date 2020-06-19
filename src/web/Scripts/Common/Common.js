@@ -42,27 +42,6 @@ $(function () {
         },
 
         /** 
-         * ヘッダーのイベント定義.
-         */
-        HeaderSetEvent: function () {
-
-            // 作業入力押下.
-            $("#repotWork").click(function () {
-                Common.Send(CommonConst.PAGE_URL.M02);
-            });
-
-            // 休暇一覧押下.
-            $("#vacationList").click(function () {
-                Common.Send(CommonConst.PAGE_URL.M04);
-            });
-
-            // 有給休暇申請押下.
-            $("#vacationApply").click(function () {
-                $('.popupM05').addClass('show').fadeIn();
-            });
-        },
-
-        /** 
          * 共通イベントの定義.
          */
         CommonSetEvent: function () {

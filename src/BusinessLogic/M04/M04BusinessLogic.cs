@@ -53,7 +53,7 @@ namespace BusinessLogic.M04
                 {
                     ret.Add(new M04VacationModel()
                     {
-                        VacationDay = (dr["GetVacationDay"] as DateTime?).Value.ToString("yyyy/MM/dd"),
+                        VacationDay = (dr["VacationDay"] as DateTime?).Value.ToString("yyyy/MM/dd"),
                         TypeCd = dr["TypeCd"] as string,
                         TypeName = dr["TypeName"] as string,
                         ApplyStatus = dr["ApplyStatus"] as string,

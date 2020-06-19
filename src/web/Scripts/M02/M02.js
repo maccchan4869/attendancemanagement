@@ -11,7 +11,6 @@ $(function () {
          * 読込完了時イベント
          */
         OnReady: function () {
-            Common.HeaderSetEvent();
             Common.CommonSetEvent();
             M02.SetCalendarIntiVal();
         },
