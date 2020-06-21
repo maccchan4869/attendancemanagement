@@ -1,5 +1,6 @@
 ﻿using DataAccess.M04;
 using Model.M04;
+using Model.M05;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,8 @@ namespace BusinessLogic.M04
         {
             var ret = new M04ViewModel()
             {
-                M04VacationModel = SetM04VacationModel(UserId)
+                M04VacationModel = SetM04VacationModel(UserId),
+                DropDownListModel = SetDorpDownList()
             };
 
             return ret;
@@ -60,6 +62,27 @@ namespace BusinessLogic.M04
                         StatusName = dr["StatusName"] as string,
                         ApplyStatusCSS = SetApplyStatusCSS(dr["ApplyStatus"] as string),
                         Memo = dr["Memo"] as string,
+                    });
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// 休暇区分一覧取得
+        /// </summary>
+        /// <returns></returns>
+        private List<VacationTypeModel> SetDorpDownList()
+        {
+            var ret = new List<VacationTypeModel>();
+            using (var dr = dac.GetDorpDownList())
+            {
+                while (dr.Read())
+                {
+                    ret.Add(new VacationTypeModel()
+                    {
+                        TypeCd = dr["TypeCd"] as string,
+                        TypeName = dr["TypeName"] as string,
                     });
                 }
             }

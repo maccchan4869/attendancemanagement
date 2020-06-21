@@ -35,5 +35,18 @@ WHERE
             };
             return DBSelect(sql, para);
         }
+
+        public SqlDataReader GetDorpDownList()
+        {
+            var sql = @"
+SELECT
+    TypeCd
+    , TypeName
+FROM 
+    tbm_VacationType
+";
+            var para = new List<SqlParameter>();
+            return DBSelect(sql, para);
+        }
     }
 }

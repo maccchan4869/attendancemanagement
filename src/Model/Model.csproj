@@ -42,7 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="M04\M04Model.cs" />
+    <Compile Include="M05\M05Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Const\Const.csproj">
+      <Project>{9F670B2D-A120-4D62-9F8C-C25B262FE2EC}</Project>
+      <Name>Const</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
