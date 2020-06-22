@@ -15,16 +15,5 @@ namespace Web.Controllers
             M04ViewModel vm = logic.Ready(userId);
             return View("M04", vm);
         }
-
-        [HttpPost]
-        [Authorize]
-        public ActionResult Ready()
-        {
-            var userId = GetUserId();
-            var logic = new M04BusinessLogic();
-            M04ViewModel ret = logic.Ready(userId);
-
-            return Json(new { result = ret });
-        }
     }
 }

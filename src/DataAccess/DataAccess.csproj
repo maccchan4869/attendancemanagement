@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BaseDataAccess.cs" />
     <Compile Include="M04\M04DataAccess.cs" />
+    <Compile Include="M05\M05DataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +73,10 @@
     <ProjectReference Include="..\Const\Const.csproj">
       <Project>{9F670B2D-A120-4D62-9F8C-C25B262FE2EC}</Project>
       <Name>Const</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{22D82FD8-F65F-4879-8B23-F9105276D837}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

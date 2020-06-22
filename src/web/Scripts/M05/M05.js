@@ -24,14 +24,15 @@ $(function () {
          */
         onClickApply: function () {
             var param = {
-                CalcValue1: $("#CalcValue1").val(),
-                CalcSymbol: $("#CalcSymbol").val(),
-                CalcValue2: $("#CalcValue2").val()
+                VacationDay: $("#applyVacationDay").val(),
+                TypeCd: $("#applyVacationType").val()
+                //Memo: $("#CalcValue2").val()
             };
             Common.Post("/M05/Apply", param, M05.onSuccess, M05.onError);
         },
 
         onSuccess: function () {
+            $('.popup').removeClass("show");
             alert("登録しました");
         },
 

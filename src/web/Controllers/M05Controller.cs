@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLogic.M05;
+using Model.M05;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +13,13 @@ namespace Web.Controllers
     {
         [HttpPost]
         [Authorize]
-        public ActionResult Apply()
+        public ActionResult Apply(ApplyVacationModel Model)
         {
-            return Json(new { result = "" });
+            Model.UserId = GetUserId();
+            var logic = new M05BusinessLogic();
+            var result = logic.RegisterVacation(Model);
+
+            return Json(new { result });
         }
     }
 }

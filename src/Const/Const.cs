@@ -69,5 +69,18 @@ namespace Const
                 public const string REJECTED = "04";
             }
         }
+
+        public class RESULT_CD
+        {
+            /// <summary>
+            /// 成功
+            /// </summary>
+            public const string SUCCESS = "000";
+
+            /// <summary>
+            /// 失敗
+            /// </summary>
+            public const string FAILED = "999";
+        }
     }
 }

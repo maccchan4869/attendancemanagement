@@ -51,7 +51,7 @@ namespace DataAccess
         /// </summary>
         /// <param name="sql"></param>
         /// <param name="param"></param>
-        public void DBInsert(string sql, List<SqlParameter> param)
+        public int DBInsert(string sql, List<SqlParameter> param)
         {
             var con = OpenDbConnection();
             using (var command = con.CreateCommand())
@@ -69,7 +69,7 @@ namespace DataAccess
                     }
 
                     // SQLの実行
-                    command.ExecuteNonQuery();
+                    return command.ExecuteNonQuery();
                 }
                 catch (Exception exception)
                 {

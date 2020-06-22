@@ -39,7 +39,7 @@ $(function () {
          * 取消申請.
          */
         onClickCancel: function () {
-            $('.popupM05').addClass('show').fadeIn();
+            $('.popupM06').addClass('show').fadeIn();
         }
     };
 

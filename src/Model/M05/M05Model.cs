@@ -9,8 +9,11 @@ namespace Model.M05
 {
     public class ApplyVacationModel
     {
+        /// <summary>ユーザーID</summary>
+        public string UserId { get; set; } = string.Empty;
+
         /// <summary>有給休暇取得日</summary>
-        public string VacationDay { get; set; } = string.Empty;
+        public DateTime VacationDay { get; set; }
 
         /// <summary>種別CD</summary>
         public string TypeCd { get; set; } = string.Empty;

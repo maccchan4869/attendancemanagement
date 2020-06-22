@@ -39,7 +39,7 @@ namespace BusinessLogic.M04
                 M04VacationModel = SetM04VacationModel(UserId),
                 DropDownListModel = SetDorpDownList(),
                 VacationDay = DateTime.Now
-        };
+            };
 
             return ret;
         }

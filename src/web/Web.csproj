@@ -407,6 +407,10 @@
       <Project>{45c9f1ce-41f5-4733-988e-3dab5904860e}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{22D82FD8-F65F-4879-8B23-F9105276D837}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{3e7a7e4b-7a48-4b40-9fc2-d6f9c1fb9c47}</Project>
       <Name>ViewModel</Name>
