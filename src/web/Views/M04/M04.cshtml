@@ -1,5 +1,5 @@
 ﻿@model ViewModel.M04ViewModel
-
+@using Const
 @{
     ViewBag.Title = "休暇一覧";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,6 +13,7 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Html.Js("~/Scripts/Common/Common.js")
     @Html.Js("~/Scripts/M05/M05.js")
+    @Html.Js("~/Scripts/M06/M06.js")
     @Html.Js("~/Scripts/M04/M04.js")
 }
 
@@ -36,12 +37,18 @@
         <tbody class="M04_tbody">
             @foreach (var item in Model.M04VacationModel)
             {
-                <tr>
+                <tr t>
                     <td class="col-vacationDay">@item.VacationDay</td>
                     <td class="col-typeName">@item.TypeName</td>
                     <td class="col-statusName">@item.StatusName</td>
                     <td class="col-memo">@item.Memo</td>
-                    <td class="col-applyCancels"><button type="button" id="vacationApply" class="btn btn-danger onClickCancel">申請取消</button></td>
+                    <td class="col-applyCancels">
+                        @if (@item.ApplyStatus != Const.APPLY_STATUS.VACATION.ACQUIRED)
+                        {
+                            <button type="button" class="btn btn-danger onClickCancel"
+                                    data-vacationDay="2020-05-22" data-type="02">申請取消</button>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

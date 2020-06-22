@@ -39,6 +39,10 @@ $(function () {
          * 取消申請.
          */
         onClickCancel: function () {
+            var a = $(this).data('vacationDay');
+            var hiddenVal = a.children('td')[0];
+            var nameVal = $(this).children('td')[1].innerText;
+            alert('No: ' + hiddenVal + ' name: ' + nameVal);
             $('.popupM06').addClass('show').fadeIn();
         }
     };

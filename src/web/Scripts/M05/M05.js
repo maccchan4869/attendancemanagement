@@ -33,6 +33,7 @@ $(function () {
 
         onSuccess: function () {
             $('.popup').removeClass("show");
+            window.location.reload();
             alert("登録しました");
         },
 
