@@ -21,13 +21,4 @@ namespace Model.M05
         /// <summary>メモ</summary>
         public string Memo { get; set; } = string.Empty;
     }
-
-    public class VacationTypeModel
-    {
-        /// <summary>種別CD</summary>
-        public string TypeCd { get; set; } = string.Empty;
-
-        /// <summary>種別名</summary>
-        public string TypeName { get; set; } = string.Empty;
-    }
 }

@@ -1,5 +1,6 @@
 ﻿using DataAccess.M04;
 using Model.M04;
+using System.Web.Mvc;
 using Model.M05;
 using System;
 using System.Collections.Generic;
@@ -36,8 +37,9 @@ namespace BusinessLogic.M04
             var ret = new M04ViewModel()
             {
                 M04VacationModel = SetM04VacationModel(UserId),
-                DropDownListModel = SetDorpDownList()
-            };
+                DropDownListModel = SetDorpDownList(),
+                VacationDay = DateTime.Now
+        };
 
             return ret;
         }
@@ -72,17 +74,17 @@ namespace BusinessLogic.M04
         /// 休暇区分一覧取得
         /// </summary>
         /// <returns></returns>
-        private List<VacationTypeModel> SetDorpDownList()
+        private List<SelectListItem> SetDorpDownList()
         {
-            var ret = new List<VacationTypeModel>();
+            var ret = new List<SelectListItem>();
             using (var dr = dac.GetDorpDownList())
             {
                 while (dr.Read())
                 {
-                    ret.Add(new VacationTypeModel()
+                    ret.Add(new SelectListItem()
                     {
-                        TypeCd = dr["TypeCd"] as string,
-                        TypeName = dr["TypeName"] as string,
+                        Value = dr["TypeCd"] as string,
+                        Text = dr["TypeName"] as string,
                     });
                 }
             }
