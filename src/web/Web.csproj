@@ -179,6 +179,7 @@
     <Compile Include="Controllers\M02Controller.cs" />
     <Compile Include="Controllers\M04Controller.cs" />
     <Compile Include="Controllers\M05Controller.cs" />
+    <Compile Include="Controllers\M06Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -259,6 +260,7 @@
     <Content Include="Scripts\M02\M02.js" />
     <Content Include="Scripts\M04\M04.js" />
     <Content Include="Scripts\M05\M05.js" />
+    <Content Include="Scripts\M06\M06.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />

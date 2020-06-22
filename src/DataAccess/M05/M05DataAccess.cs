@@ -38,9 +38,9 @@ INSERT INTO tbd_Vacation(
                 new SqlParameter("@TypeCd", SqlDbType.VarChar) { Value = Model.TypeCd },
                 new SqlParameter("@ApplyStatus", SqlDbType.VarChar) { Value = Model.ApplyStatus },
                 new SqlParameter("@Memo", SqlDbType.VarChar) { Value = Model.Memo },
-                new SqlParameter("@CreateDateTime", SqlDbType.Date) { Value = DateTime.Now },
+                new SqlParameter("@CreateDateTime", SqlDbType.DateTime) { Value = DateTime.Now },
             };
-            return DBInsert(sql, para) == 0 ? false : true;
+            return DBExecute(sql, para) == 0 ? false : true;
         }
     }
 }

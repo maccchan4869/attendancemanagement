@@ -46,7 +46,7 @@
                         @if (@item.ApplyStatus != Const.APPLY_STATUS.VACATION.ACQUIRED)
                         {
                             <button type="button" class="btn btn-danger onClickCancel"
-                                    data-vacationDay="2020-05-22" data-type="02">申請取消</button>
+                                    data-vacationday=@item.VacationDay data-type=@item.TypeCd data-typename=@item.TypeName>申請取消</button>
                         }
                     </td>
                 </tr>

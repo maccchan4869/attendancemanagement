@@ -47,11 +47,11 @@ namespace DataAccess
         }
 
         /// <summary>
-        /// INSERT文.
+        /// INSERT,UPDATE,DELETE文.
         /// </summary>
         /// <param name="sql"></param>
         /// <param name="param"></param>
-        public int DBInsert(string sql, List<SqlParameter> param)
+        public int DBExecute(string sql, List<SqlParameter> param)
         {
             var con = OpenDbConnection();
             using (var command = con.CreateCommand())

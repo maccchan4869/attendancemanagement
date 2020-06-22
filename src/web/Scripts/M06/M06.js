@@ -1,26 +1,26 @@
 ﻿
-var M05 = null;
+var M06 = null;
 
 $(function () {
 
-    M05 = {
+    M06 = {
 
         /**
          * 読込完了時イベント
          */
         OnReady: function () {
             Common.CommonSetEvent();
-            M05.setIntiVal();
-            M05.setEvent();
+            M06.setIntiVal();
+            M06.setEvent();
         },
 
         /**
          * 初期値設定.
          */
         setIntiVal: function () {
-            $('#applyVacationDay').val("");
-            $('#applyVacationType').val("");
-            //$('#Memo').val("");
+            $('#cancelTypeName').val("");
+            $('#cancelVacationDay').val("");
+            $('#cancelTypeCd').val("");
         },
 
         /**
@@ -30,15 +30,15 @@ $(function () {
         },
 
         /**
-         * 休暇申請.
+         * 休暇取消申請.
          */
-        onClickApply: function () {
+        onClickCancel: function () {
             var param = {
-                VacationDay: $("#applyVacationDay").val(),
-                TypeCd: $("#applyVacationType").val()
-                //Memo: $("#Memo").val()
+                VacationDay: $("#cancelVacationDay").val(),
+                TypeCd: $("#cancelTypeCd").val()
+                //Rev: $("#cancelRev").val()
             };
-            Common.Post("/M05/Apply", param, M05.onSuccess, M05.onError);
+            Common.Post("/M06/Cancel", param, M06.onSuccess, M06.onError);
         },
 
         onSuccess: function () {
@@ -53,5 +53,5 @@ $(function () {
 
     };
 
-    M05.OnReady();
+    M06.OnReady();
 });

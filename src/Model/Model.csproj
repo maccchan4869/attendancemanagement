@@ -44,6 +44,7 @@
     <Compile Include="Common\ResultModel.cs" />
     <Compile Include="M04\M04Model.cs" />
     <Compile Include="M05\M05Model.cs" />
+    <Compile Include="M06\M06Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

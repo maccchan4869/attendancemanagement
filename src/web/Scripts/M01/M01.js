@@ -8,15 +8,15 @@ $(function () {
         /**
          * 読込完了時イベント
          */
-        OnReady: function () {
+        onReady: function () {
         },
 
         /**
          * イベント設定.
          */
-        SetEvent: function () {
+        setEvent: function () {
         },
     };
 
-    M01.OnReady();
+    M01.onReady();
 });

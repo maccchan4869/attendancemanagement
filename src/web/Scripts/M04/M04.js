@@ -10,13 +10,13 @@ $(function () {
          */
         OnReady: function () {
             Common.CommonSetEvent();
-            M04.SetEvent();
+            M04.setEvent();
         },
 
         /**
          * イベント設定.
          */
-        SetEvent: function () {
+        setEvent: function () {
             // 有給休暇申請押下.
             $("#vacationApply").click(function () {
                 M04.onClickApply();
@@ -24,7 +24,7 @@ $(function () {
 
             // 取消申請押下
             $(".onClickCancel").click(function () {
-                M04.onClickCancel();
+                M04.onClickCancel($(this).data());
             });
         },
 
@@ -32,17 +32,17 @@ $(function () {
          * 休暇申請.
          */
         onClickApply: function () {
+            M05.setIntiVal();
             $('.popupM05').addClass('show').fadeIn();
         },
 
         /**
          * 取消申請.
          */
-        onClickCancel: function () {
-            var a = $(this).data('vacationDay');
-            var hiddenVal = a.children('td')[0];
-            var nameVal = $(this).children('td')[1].innerText;
-            alert('No: ' + hiddenVal + ' name: ' + nameVal);
+        onClickCancel: function (obj) {
+            $('#cancelTypeName').val(obj.typename);
+            $('#cancelVacationDay').val(obj.vacationday);
+            $('#cancelTypeCd').val(obj.type);
             $('.popupM06').addClass('show').fadeIn();
         }
     };
