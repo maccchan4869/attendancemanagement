@@ -194,8 +194,8 @@ namespace web.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "アカウントの確認", "このリンクをクリックすることによってアカウントを確認してください <a href=\"" + callbackUrl + "\">こちら</a>");
-
-                    return RedirectToAction("M01", "M01");
+                    return Json(new { result });
+                    //return RedirectToAction("M01", "M01");
                 }
                 AddErrors(result);
             }
