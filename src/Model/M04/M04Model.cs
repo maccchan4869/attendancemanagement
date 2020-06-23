@@ -28,5 +28,8 @@ namespace Model.M04
 
         /// <summary>メモ</summary>
         public string Memo { get; set; } = string.Empty;
+
+        /// <summary>更新日時</summary>
+        public string UpdateDateTime { get; set; } = string.Empty;
     }
 }

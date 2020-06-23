@@ -21,6 +21,7 @@ $(function () {
             $('#cancelTypeName').val("");
             $('#cancelVacationDay').val("");
             $('#cancelTypeCd').val("");
+            $('#cancelUpdateDt').val("");
         },
 
         /**
@@ -35,8 +36,8 @@ $(function () {
         onClickCancel: function () {
             var param = {
                 VacationDay: $("#cancelVacationDay").val(),
-                TypeCd: $("#cancelTypeCd").val()
-                //Rev: $("#cancelRev").val()
+                TypeCd: $("#cancelTypeCd").val(),
+                UpdateDateTime: $("#cancelUpdateDt").val()
             };
             Common.Post("/M06/Cancel", param, M06.onSuccess, M06.onError);
         },

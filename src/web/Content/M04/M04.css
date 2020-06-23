@@ -15,5 +15,5 @@
   width: 10%;
   text-align: center; }
 
-.col-memo {
+.col-memo, .col-updateDt {
   display: none; }

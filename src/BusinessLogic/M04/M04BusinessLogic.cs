@@ -64,6 +64,7 @@ namespace BusinessLogic.M04
                         StatusName = dr["StatusName"] as string,
                         ApplyStatusCSS = SetApplyStatusCSS(dr["ApplyStatus"] as string),
                         Memo = dr["Memo"] as string,
+                        UpdateDateTime = (dr["UpdateDateTime"] as DateTime?).Value.ToString("yyyy/MM/dd HH:mm:ss.fff")
                     });
                 }
             }

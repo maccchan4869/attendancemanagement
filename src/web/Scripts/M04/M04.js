@@ -38,11 +38,14 @@ $(function () {
 
         /**
          * 取消申請.
+         * 
+         * @param  {Object} aObj       クリックされたDOM
          */
-        onClickCancel: function (obj) {
-            $('#cancelTypeName').val(obj.typename);
-            $('#cancelVacationDay').val(obj.vacationday);
-            $('#cancelTypeCd').val(obj.type);
+        onClickCancel: function (aObj) {
+            $('#cancelTypeName').val(aObj.typename);
+            $('#cancelVacationDay').val(aObj.vacationday);
+            $('#cancelTypeCd').val(aObj.type);
+            $('#cancelUpdateDt').val(aObj.updatedt);
             $('.popupM06').addClass('show').fadeIn();
         }
     };

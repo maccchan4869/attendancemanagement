@@ -21,14 +21,14 @@ INSERT INTO tbd_Vacation(
     , TypeCd
     , ApplyStatus
     , Memo
-    , CreateDateTime
+    , UpdateDateTime
 ) VALUES ( 
     @UserId
     , @VacationDay
     , @TypeCd
     , @ApplyStatus
     , @Memo
-    , @CreateDateTime
+    , @UpdateDateTime
 )
 ";
             var para = new List<SqlParameter>
@@ -38,7 +38,7 @@ INSERT INTO tbd_Vacation(
                 new SqlParameter("@TypeCd", SqlDbType.VarChar) { Value = Model.TypeCd },
                 new SqlParameter("@ApplyStatus", SqlDbType.VarChar) { Value = Model.ApplyStatus },
                 new SqlParameter("@Memo", SqlDbType.VarChar) { Value = Model.Memo },
-                new SqlParameter("@CreateDateTime", SqlDbType.DateTime) { Value = DateTime.Now },
+                new SqlParameter("@UpdateDateTime", SqlDbType.DateTime) { Value = DateTime.Now },
             };
             return DBExecute(sql, para) == 0 ? false : true;
         }

@@ -18,6 +18,7 @@ SELECT
     , TV.Memo
     , MVT.TypeName
     , StatusName
+    , TV.UpdateDateTime
 FROM 
     tbd_Vacation AS TV
     INNER JOIN tbm_VacationType AS MVT

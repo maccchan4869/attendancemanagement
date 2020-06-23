@@ -16,5 +16,8 @@ namespace Model.M06
 
         /// <summary>種別CD</summary>
         public string TypeCd { get; set; } = string.Empty;
+
+        /// <summary>更新日時</summary>
+        public string UpdateDateTime { get; set; }
     }
 }
