@@ -42,13 +42,11 @@
                 <td class="col-vacationDay">@item.VacationDay</td>
                 <td class="col-typeName">@item.TypeName</td>
                 <td class="col-statusName">@item.StatusName</td>
-                <td class="col-memo">@item.Memo</td>
-                <td class="col-updateDt">@item.UpdateDateTime</td>
                 <td class="col-applyCancels">
                     @if (@item.ApplyStatus != Const.APPLY_STATUS.VACATION.ACQUIRED)
                     {
                         <button type="button" class="btn btn-danger onClickCancel"
-                                data-vacationday=@item.VacationDay data-type=@item.TypeCd data-typename=@item.TypeName data-updateDt=@item.UpdateDateTime>申請取消
+                                data-vacationday=@item.VacationDay data-type=@item.TypeCd data-typename=@item.TypeName data-updateDate=@item.UpdateDate data-updateTime=@item.UpdateTime>申請取消
                         </button>
                     }
                 </td>

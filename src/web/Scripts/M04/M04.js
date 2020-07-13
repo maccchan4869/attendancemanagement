@@ -45,7 +45,7 @@ $(function () {
             $('#cancelTypeName').val(aObj.typename);
             $('#cancelVacationDay').val(aObj.vacationday);
             $('#cancelTypeCd').val(aObj.type);
-            $('#cancelUpdateDt').val(aObj.updatedt);
+            $('#cancelUpdateDt').val(aObj.updatedate + ' ' + aObj.updatetime);
             $('.popupM06').addClass('show').fadeIn();
         }
     };
