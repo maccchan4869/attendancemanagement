@@ -12,6 +12,13 @@ $(function () {
             Common.CommonSetEvent();
             M05.setIntiVal();
             M05.setEvent();
+
+            // datepickerを定義
+            $('.datepicker').datepicker({
+                language: 'ja',
+                format: 'yyyy年mm月dd日',
+                autoclose: 'true'
+            });
         },
 
         /**

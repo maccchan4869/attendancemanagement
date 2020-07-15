@@ -46,11 +46,6 @@ $(function () {
          */
         CommonSetEvent: function () {
 
-            // datepickerを定義
-            $('.datepicker').datepicker({
-                language: 'ja'
-            });
-
             // ポップアップを閉じる.
             $(".popupClose").click(function () {
                 $('.popup').removeClass("show");
