@@ -5,10 +5,13 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using BusinessLogic.Common;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Model.Common;
 using web.Models;
+using static Const.Const;
 
 namespace web.Controllers
 {
@@ -102,7 +105,8 @@ namespace web.Controllers
 
             // これは、アカウント ロックアウトの基準となるログイン失敗回数を数えません。
             // パスワード入力失敗回数に基づいてアカウントがロックアウトされるように設定するには、shouldLockout: true に変更してください。
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var Email = model.UserId + CONFIG_STRING.MAIL_DOMAIN;
+            var result = await SignInManager.PasswordSignInAsync(Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -178,7 +182,8 @@ namespace web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var Email = model.UserId + CONFIG_STRING.MAIL_DOMAIN;
+                var user = new ApplicationUser { UserName = Email, Email = Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -186,16 +191,18 @@ namespace web.Controllers
                     if (model.IsAdmin)
                     {
                         CreateRole();
-                        CreateAdmin(model.Email, model.Password);
+                        CreateAdmin(Email, model.Password);
                     }
+                    var logic = new CommonBusinessLogic();
+                    logic.RegisterUserInfo(TransModel(model));
 
                     // アカウント確認とパスワード リセットを有効にする方法の詳細については、https://go.microsoft.com/fwlink/?LinkID=320771 を参照してください
                     // このリンクを含む電子メールを送信します
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "アカウントの確認", "このリンクをクリックすることによってアカウントを確認してください <a href=\"" + callbackUrl + "\">こちら</a>");
-                    return Json(new { result });
-                    //return RedirectToAction("M01", "M01");
+                    //return Json(new { result });
+                    return RedirectToAction("M01", "M01");
                 }
                 AddErrors(result);
             }
@@ -526,6 +533,21 @@ namespace web.Controllers
             userManager.AddToRole(user.Id, "admin");
 
             return Content("create admin");
+        }
+
+        /// <summary>
+        /// ユーザーに権限を付与する
+        /// </summary>
+        private RegisterUserModel TransModel(RegisterViewModel Model)
+        {
+            var ret = new RegisterUserModel()
+            {
+                UserId = Model.UserId,
+                UserName = Model.UserName,
+                MailAddress = Model.UserId + CONFIG_STRING.MAIL_DOMAIN,
+                JoinCompanyDate = Model.JoinCompanyDate
+            };
+            return ret;
         }
         #endregion
     }

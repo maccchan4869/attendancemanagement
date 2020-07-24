@@ -62,6 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="A05\A05BusinessLogic.cs" />
+    <Compile Include="Common\CommonBusinessLogic.cs" />
     <Compile Include="M04\M04BusinessLogic.cs" />
     <Compile Include="M05\M05BusinessLogic.cs" />
     <Compile Include="M06\M06BusinessLogic.cs" />

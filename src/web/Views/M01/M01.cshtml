@@ -12,7 +12,7 @@
 @* 権限によるページ切替 *@
 @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("admin"))
 {
-    @Html.Partial("~/Views/M01/_AminUserMenu.cshtml")
+    @Html.Partial("~/Views/M01/_AdminUserMenu.cshtml")
 }
 else
 {

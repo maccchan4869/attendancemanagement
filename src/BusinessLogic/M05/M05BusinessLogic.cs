@@ -37,7 +37,7 @@ namespace BusinessLogic.M05
             if (!dac.RegisterVacation(Model))
             {
                 ret.ResultCd = RESULT_CD.FAILED;
-                ret.ErrorMessage = "登録に失敗しました";
+                ret.ErrorMessage = MESSAGE_LIST.REGISTER_FAILED;
                 return ret;
             }
             return ret;

@@ -1,4 +1,4 @@
-﻿using DataAccess.M04;
+﻿using DataAccess.Common;
 using Model.M04;
 using System.Web.Mvc;
 using Model.M05;

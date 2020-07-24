@@ -62,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDataAccess.cs" />
+    <Compile Include="Common\CommonDataAccess.cs" />
+    <Compile Include="A05\A05DataAccess.cs" />
     <Compile Include="M04\M04DataAccess.cs" />
     <Compile Include="M05\M05DataAccess.cs" />
     <Compile Include="M06\M06DataAccess.cs" />

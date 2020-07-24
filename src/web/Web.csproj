@@ -173,8 +173,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Common\HTMLHelper.cs" />
+    <Compile Include="Controllers\A06Controller.cs" />
+    <Compile Include="Controllers\A05Controller.cs" />
+    <Compile Include="Controllers\A04Controller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\A01Controller.cs" />
     <Compile Include="Controllers\M01Controller.cs" />
     <Compile Include="Controllers\M02Controller.cs" />
     <Compile Include="Controllers\M04Controller.cs" />
@@ -483,7 +487,11 @@
     <Content Include="Scss\M01\M01.scss" />
     <Content Include="Scss\M04\M04.scss" />
     <Content Include="Views\M01\_UserMenu.cshtml" />
-    <Content Include="Views\M01\_AminUserMenu.cshtml" />
+    <Content Include="Views\M01\_AdminUserMenu.cshtml" />
+    <Content Include="Views\A01\A01.cshtml" />
+    <Content Include="Views\A04\A04.cshtml" />
+    <Content Include="Views\A05\A05.cshtml" />
+    <Content Include="Views\A06\A06.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -504,6 +512,10 @@
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{45c9f1ce-41f5-4733-988e-3dab5904860e}</Project>
       <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Const\Const.csproj">
+      <Project>{9F670B2D-A120-4D62-9F8C-C25B262FE2EC}</Project>
+      <Name>Const</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{22D82FD8-F65F-4879-8B23-F9105276D837}</Project>

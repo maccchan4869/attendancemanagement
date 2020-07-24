@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using static Const.Const;
 
-namespace DataAccess.M04
+namespace DataAccess.Common
 {
     public class M04DataAccess : BaseDataAccess
     {

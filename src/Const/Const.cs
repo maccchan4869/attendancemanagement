@@ -82,5 +82,34 @@ namespace Const
             /// </summary>
             public const string FAILED = "999";
         }
+
+        public class MESSAGE_LIST
+        {
+            /// <summary>
+            /// 成功
+            /// </summary>
+            public const string REGISTER_SUCCESS = "登録に成功しました";
+
+            /// <summary>
+            /// 失敗
+            /// </summary>
+            public const string REGISTER_FAILED = "登録に失敗しました";
+        }
+
+        public class CONFIG_INT
+        {
+            /// <summary>
+            /// 初年度有給付与までの月経過数
+            /// </summary>
+            public const int FIRST_HOLIDAYS = 6;
+        }
+
+        public class CONFIG_STRING
+        {
+            /// <summary>
+            /// 会社ドメイン
+            /// </summary>
+            public const string MAIL_DOMAIN = "@levantech.co.jp";
+        }
     }
 }

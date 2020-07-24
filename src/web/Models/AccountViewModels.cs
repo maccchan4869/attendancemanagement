@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace web.Models
@@ -48,10 +49,8 @@ namespace web.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "電子メール")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "ユーザーID")]
+        public string UserId { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -65,9 +64,16 @@ namespace web.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "電子メール")]
-        public string Email { get; set; }
+        [Display(Name = "ユーザーID")]
+        public string UserId { get; set; }
+
+        [Required]
+        [Display(Name = "ユーザー名")]
+        public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "入社年月日")]
+        public DateTime JoinCompanyDate { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} の長さは {2} 文字以上である必要があります。", MinimumLength = 6)]
