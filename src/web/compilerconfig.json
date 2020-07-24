@@ -4,6 +4,10 @@
     "inputFile": "Scss/Common/Common.scss"
   },
   {
+    "outputFile": "Content/A05/A05.css",
+    "inputFile": "Scss/A05/A05.scss"
+  },
+  {
     "outputFile": "Content/M01/M01.css",
     "inputFile": "Scss/M01/M01.scss"
   },

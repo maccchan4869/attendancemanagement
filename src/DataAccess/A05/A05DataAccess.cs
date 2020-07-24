@@ -25,9 +25,11 @@ FROM
         ON TV.TypeCd = MVT.TypeCd
     INNER JOIN tbm_ApplyStatus AS MAS
         ON TV.ApplyStatus = MAS.ApplyStatus
+        AND MAS.ApplyCd = @VacationCd
 ";
             var para = new List<SqlParameter>
             {
+                new SqlParameter("@VacationCd", SqlDbType.VarChar) { Value = APPLY_CD.VACATION }
             };
             return DBSelect(sql, para);
         }

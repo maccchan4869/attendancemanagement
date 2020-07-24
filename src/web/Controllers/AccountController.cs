@@ -183,7 +183,7 @@ namespace web.Controllers
             if (ModelState.IsValid)
             {
                 var Email = model.UserId + CONFIG_STRING.MAIL_DOMAIN;
-                var user = new ApplicationUser { UserName = Email, Email = Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
