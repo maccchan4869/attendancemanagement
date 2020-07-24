@@ -1,0 +1,46 @@
+﻿@model ViewModel.A05ViewModel
+@using Const
+@{
+    ViewBag.Title = "休暇申請一覧画面";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+}
+
+@section Scripts{
+}
+
+<div class="container A05_MainArea">
+    <table class="table tblA05 table-hover">
+        <thead class="thead-light">
+            <tr>
+                <td class="col-vacationDay">休暇取得日</td>
+                <td class="col-typeName">休暇区分</td>
+                <td class="col-statusName">申請状態</td>
+                <td class="col-memo">メモ</td>
+                <td class="col-updateDt">更新日時</td>
+                <td class="col-applyCancels">申請取消ボタン</td>
+            </tr>
+        </thead>
+        <tbody class="A05_tbody">
+            @foreach (var item in Model.A05VacationModel)
+            {
+                <tr t>
+                    <td class="col-vacationDay">@item.VacationDay</td>
+                    <td class="col-typeName">@item.TypeName</td>
+                    <td class="col-statusName">@item.StatusName</td>
+                    <td class="col-applyCancels">
+                        @if (@item.ApplyStatus != Const.APPLY_STATUS.VACATION.ACQUIRED)
+                        {
+                            <button type="button" class="btn btn-danger onClickCancel"
+                                    data-vacationday=@item.VacationDay data-type=@item.TypeCd data-typename=@item.TypeName data-updateDate=@item.UpdateDate data-updateTime=@item.UpdateTime>
+                                申請取消
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,11 @@
+﻿<div class="container AdminUser_MainArea">
+    <div>管理者</div>
+    <div>Username: @User.Identity.Name</div>
+    <div>Login: @User.Identity.IsAuthenticated</div>
+    <div>Is Admin: @User.IsInRole("admin")</div>
+
+    <div class="nav-item">@Html.ActionLink("ユーザーマスタメンテ", "A01", "A01", routeValues: null, htmlAttributes: new { @class = "nav-link" })</div>
+    <div class="nav-item">@Html.ActionLink("休暇日数メンテ", "A04", "A04", routeValues: null, htmlAttributes: new { @class = "nav-link" })</div>
+    <div class="nav-item">@Html.ActionLink("休暇申請一覧", "A05", "A05", routeValues: null, htmlAttributes: new { @class = "nav-link" })</div>
+    <div class="nav-item">@Html.ActionLink("経費申請一覧", "A06", "A06", routeValues: null, htmlAttributes: new { @class = "nav-link" })</div>
+</div>
