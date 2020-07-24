@@ -8,6 +8,12 @@ namespace Model.A05
 {
     public class A05VacationModel
     {
+        /// <summary>ユーザーID</summary>
+        public string UserId { get; set; } = string.Empty;
+
+        /// <summary>ユーザー名</summary>
+        public string UserName { get; set; } = string.Empty;
+
         /// <summary>有給休暇取得日</summary>
         public string VacationDay { get; set; } = string.Empty;
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using ViewModel;
 using Model.A05;
 using DataAccess.Common;
+using Model.Common;
+using static Const.Const;
 
 namespace BusinessLogic.A05
 {
@@ -38,7 +40,22 @@ namespace BusinessLogic.A05
         }
 
         /// <summary>
-        /// 初期表示
+        /// 登録処理
+        /// </summary>
+        /// <returns></returns>
+        public ResultModel Register(A05RegisterModel Model)
+        {
+            var ret = new ResultModel();
+            if (!dac.Register(Model))
+            {
+                ret.ResultCd = RESULT_CD.FAILED;
+                ret.ErrorMessage = MESSAGE_LIST.REGISTER_FAILED;
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// 休暇取得情報取得
         /// </summary>
         /// <returns></returns>
         private List<A05VacationModel> A05VacationModel()
@@ -50,6 +67,8 @@ namespace BusinessLogic.A05
                 {
                     ret.Add(new A05VacationModel()
                     {
+                        UserId = dr["UserId"] as string,
+                        UserName = dr["UserName"] as string,
                         VacationDay = (dr["VacationDay"] as DateTime?).Value.ToString("yyyy/MM/dd"),
                         TypeCd = dr["TypeCd"] as string,
                         TypeName = dr["TypeName"] as string,

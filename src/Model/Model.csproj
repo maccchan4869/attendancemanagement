@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="A05\A05Model.cs" />
+    <Compile Include="A05\A05RegisterModel.cs" />
     <Compile Include="Common\RegisterUserModel.cs" />
     <Compile Include="Common\ResultModel.cs" />
     <Compile Include="M04\M04Model.cs" />
